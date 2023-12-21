@@ -58,7 +58,7 @@
                     showResults(results);
                 })
         }
-//変更
+//変更１
         function searchpowerLT() {
             let power = parseInt($("#power").val());
             let TestDataClass = ncmb.DataStore(db);
@@ -86,6 +86,33 @@
                 })
         }
 
+        //変更２
+function searchdefenceLT() {
+            let defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.lessThan("defence", defence).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchdefenceGT() {
+            let defence = parseInt($("#defence").val(), 10);
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.greaterThan("defence", defence).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchdefence() {
+            let defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass.equalTo("defence", defence).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
 
 
         function showResults(results) {
@@ -121,6 +148,10 @@
         <label for="power">power:</label>
         <input id="power" type="number" placeholder="monster power">
     </div>
+    <div>
+        <label for="defence">defence:</label>
+        <input id="defence" type="number" placeholder="monster defence">
+    </div>
     <div id="button">
         <button class="btn" onclick="fetchAll()">Fetch All</button>
         <button class="btn" onclick="searchName()">Name</button>
@@ -132,6 +163,10 @@
         <button class="btn" onclick="searchpowerLT()">button1</button>
         <button class="btn" onclick="searchpower()">Attack</button>
         <button class="btn" onclick="searchpowerGT()">button2</button>
+        <br>
+        <button class="btn" onclick="searchdefenceLT()">button3</button>
+        <button class="btn" onclick="searchdefence()">defence</button>
+        <button class="btn" onclick="searchdefenceGT()">button4</button>
     </div>
     <div id="message">message area</div>
 </body>
