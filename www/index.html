@@ -59,28 +59,28 @@
                 })
         }
 //変更
-        function searchLevelLF() {
-            let level = parseInt($("#level").val());
+        function searchpowerLT() {
+            let power = parseInt($("#power").val());
             let TestDataClass = ncmb.DataStore(db);
-            TestDataClass.lessThan("level", level).fetchAll()
+            TestDataClass.lessThan("attack", power).fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
 
-        function searchLevelLFT() {
-            let level = parseInt($("#level").val(), 10);
+        function searchpowerGT() {
+            let power = parseInt($("#power").val(), 10);
             let TestDataClass = ncmb.DataStore(db);
-            TestDataClass.greaterThan("level", level).fetchAll()
+            TestDataClass.greaterThan("attack", power).fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
         }
 
-        function searchLevel1() {
-            let level = parseInt($("#level").val());
+        function searchpower() {
+            let power = parseInt($("#power").val());
             let TestDataClass = ncmb.DataStore(db);
-            TestDataClass.equalTo("level", level).fetchAll()
+            TestDataClass.equalTo("attack", power).fetchAll()
                 .then(function(results) {
                     showResults(results);
                 })
@@ -129,9 +129,9 @@
         <button class="btn" onclick="searchLevel()">Level</button>
         <button class="btn" onclick="searchLevelGT()">Level &gt</button>
         <br>
-        <button class="btn" onclick="searchLevelLF()">button1</button>
-        <button class="btn" onclick="searchLevel1()">Level</button>
-        <button class="btn" onclick="searchLevelLFT()">button2</button>
+        <button class="btn" onclick="searchpowerLT()">button1</button>
+        <button class="btn" onclick="searchpower()">Attack</button>
+        <button class="btn" onclick="searchpowerGT()">button2</button>
     </div>
     <div id="message">message area</div>
 </body>
